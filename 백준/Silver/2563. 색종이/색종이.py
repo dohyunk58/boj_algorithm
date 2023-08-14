@@ -2,12 +2,9 @@ from sys import stdin
 
 rowlen = 100
 columnlen = 100
-
-table = []
-for _ in range(rowlen):
-    table.append([0 for _ in range(columnlen)])
-
+table = [[0]*100 for _ in range(100)]
 N = int(stdin.readline())
+
 for _ in range(N):
     row, column = map(int, stdin.readline().split())
     for i in range(row,row+10):
@@ -17,8 +14,6 @@ for _ in range(N):
 count = 0
 
 for i in range(rowlen):
-    for j in range(columnlen):
-        if table[i][j] == 1:
-            count += 1
-            
+    count += table[i].count(1)
+
 print(count)
